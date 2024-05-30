@@ -25,8 +25,8 @@ public class InGameManager : MonoBehaviour
 	public int gameMode; // 쉬움 & 어려움
     public int redTeam1; // 빨강팀 수
     public int blueTeam2; // 플루팀 수
-    public float MAX_WIDTH = 1600;
-    public float MAX_HEIGHT = 1200;
+    public float MAX_WIDTH = 1600; // 맵 최대크기
+    public float MAX_HEIGHT = 1200; // 맵 최대크기
 
     public float projectileMass = 3.3f; // 포탄 무게
     public float lineRenderCount = 2.5f; // 라인렌더러 포인트 수

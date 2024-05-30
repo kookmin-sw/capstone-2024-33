@@ -28,7 +28,7 @@ public class ProjectileHandler : MonoBehaviour
 
         rb.AddForce(position * speed * massPower, ForceMode2D.Impulse); // 발사
 
-        DeleteTimer(5); // 5초 뒤 삭제
+        DeleteTimer(6); // 6초 뒤 삭제
     }
 
     private void FixedUpdate()
@@ -51,7 +51,7 @@ public class ProjectileHandler : MonoBehaviour
         InGameManager.IT.CleanLine(); // 예상각도 UI 제거
     }
 
-    private async void DeleteTimer(float sec) // 발사후 5초뒤 삭제
+    private async void DeleteTimer(float sec) // 발사후 N초뒤 삭제
     {
         int t = (int)(sec * 1000);
         await Task.Delay(t);
