@@ -12,9 +12,9 @@ public class MobileInputManager : MonoBehaviour
 	[SerializeField] GameObject down; // 아래 버튼
     [SerializeField] GameObject space; // 스페이스 버튼
 
+    Vector3 touchedPos;
     int fingerId;
     bool isTouch;
-
     bool isLeft;
     bool isRight;
     bool isUp;
@@ -44,7 +44,8 @@ public class MobileInputManager : MonoBehaviour
                 case TouchPhase.Moved: // moving
                     if (fingerId == touch.fingerId)
                     {
-                        
+                        // touchedPos = touch.position;
+						// fingerId = touch.fingerId;
                     }
                     break;
                 case TouchPhase.Ended: // del
