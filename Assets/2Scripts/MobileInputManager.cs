@@ -41,51 +41,50 @@ public class MobileInputManager : MonoBehaviour
         // isUp = false;
         // isDown = false;
 
-        for (int i=0; i < Input.touchCount; i++)
-        {
-            Touch touch = Input.GetTouch(i);
+        // for (int i=0; i < Input.touchCount; i++)
+        // {
+        //     Touch touch = Input.GetTouch(i);
 
-            switch (touch.phase)
-            {
-                case TouchPhase.Began: // at first
+        //     switch (touch.phase)
+        //     {
+        //         case TouchPhase.Began: // at first
                     
-                    break;
-                case TouchPhase.Moved: // moving
-                    if (fingerId == touch.fingerId)
-                    {
-                        // touchedPos = touch.position;
-						// fingerId = touch.fingerId;
-                    }
-                    break;
-                case TouchPhase.Ended: // del
-                    if (fingerId == touch.fingerId)
-                    {
-                        fingerId = -1;
-                    }
-                    break;
-            }
-            isLeft |= left.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
-            isRight |= right.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
-            isUp |= up.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
-            isDown |= down.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
-			isSpace |= space.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
-
-            if (isLeft || isRight)
-			{
-				if (isLeft)
-					InGameManager.IT.playerTankHandler.LeftArrowPressed();
-				else if (isRight)
-					InGameManager.IT.playerTankHandler.RightArrowPressed();
-			}
-            if (isSpace)
-            {
-                InGameManager.IT.playerTankHandler.SpaceDown();
-                InGameManager.IT.playerTankHandler.SpacePressed();
-            }
-            else
-            {
-                InGameManager.IT.playerTankHandler.SpaceUp();
-            }
+        //             break;
+        //         case TouchPhase.Moved: // moving
+        //             if (fingerId == touch.fingerId)
+        //             {
+        //                 // touchedPos = touch.position;
+		// 				// fingerId = touch.fingerId;
+        //             }
+        //             break;
+        //         case TouchPhase.Ended: // del
+        //             if (fingerId == touch.fingerId)
+        //             {
+        //                 fingerId = -1;
+        //             }
+        //             break;
+        //     }
+        //     isLeft |= left.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+        //     isRight |= right.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+        //     isUp |= up.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+        //     isDown |= down.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+		// 	isSpace |= space.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+        // }
+        if (isLeft || isRight)
+        {
+            if (isLeft)
+                InGameManager.IT.playerTankHandler.LeftArrowPressed();
+            else if (isRight)
+                InGameManager.IT.playerTankHandler.RightArrowPressed();
+        }
+        if (isSpace)
+        {
+            InGameManager.IT.playerTankHandler.SpaceDown();
+            InGameManager.IT.playerTankHandler.SpacePressed();
+        }
+        else
+        {
+            InGameManager.IT.playerTankHandler.SpaceUp();
         }
     }
 
@@ -93,6 +92,10 @@ public class MobileInputManager : MonoBehaviour
     {
         InGameManager.IT.playerTankHandler.LeftArrowPressed();
         isLeft = true;
+    }
+    public void LeftButtonUp()
+    {
+        isLeft = false;
     }
 
     public void SpaceButtonPressed()
