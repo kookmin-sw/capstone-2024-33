@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon.StructWrapping;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MobileInputManager : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class MobileInputManager : MonoBehaviour
 
     void Start()
     {
-
+        left.GetComponent<Button>().onClick.AddListener(LeftButtonPressed);
     }
 
     void Update()
@@ -78,5 +80,10 @@ public class MobileInputManager : MonoBehaviour
                 InGameManager.IT.playerTankHandler.SpaceUp();
             }
         }
+    }
+
+    void LeftButtonPressed()
+    {
+        InGameManager.IT.playerTankHandler.LeftArrowPressed();
     }
 }
