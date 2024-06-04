@@ -26,11 +26,11 @@ public class MobileInputManager : MonoBehaviour
 
     void Start()
     {
-        EventTrigger.Entry entry_PointerDown = new ();
-        entry_PointerDown.eventID = EventTriggerType.PointerDown;
-        entry_PointerDown.callback.AddListener((data) => { LeftButtonPressed(); }); // PointerEventData)data
-        left.GetComponent<EventTrigger>().triggers.Add(entry_PointerDown);
-        
+        // EventTrigger.Entry entry_PointerDown = new ();
+        // entry_PointerDown.eventID = EventTriggerType.PointerDown;
+        // entry_PointerDown.callback.AddListener((data) => { LeftButtonPressed(); }); // PointerEventData)data
+        // left.GetComponent<EventTrigger>().triggers.Add(entry_PointerDown);
+
         // left.GetComponent<Button>().onClick.AddListener(LeftButtonPressed);
     }
 
@@ -79,6 +79,7 @@ public class MobileInputManager : MonoBehaviour
 			}
             if (isSpace)
             {
+                InGameManager.IT.playerTankHandler.SpaceDown();
                 InGameManager.IT.playerTankHandler.SpacePressed();
             }
             else
@@ -88,8 +89,19 @@ public class MobileInputManager : MonoBehaviour
         }
     }
 
-    void LeftButtonPressed()
+    public void LeftButtonPressed()
     {
         InGameManager.IT.playerTankHandler.LeftArrowPressed();
+    }
+
+    public void SpaceButtonPressed()
+    {
+        InGameManager.IT.playerTankHandler.SpaceDown();
+        InGameManager.IT.playerTankHandler.SpacePressed();
+    }
+
+    public void SpaceButtonUp()
+    {
+        InGameManager.IT.playerTankHandler.SpaceUp();
     }
 }
