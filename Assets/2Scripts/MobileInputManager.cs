@@ -36,10 +36,10 @@ public class MobileInputManager : MonoBehaviour
 
     void Update()
     {
-        isLeft = false;
-        isRight = false;
-        isUp = false;
-        isDown = false;
+        // isLeft = false;
+        // isRight = false;
+        // isUp = false;
+        // isDown = false;
 
         for (int i=0; i < Input.touchCount; i++)
         {
@@ -92,16 +92,19 @@ public class MobileInputManager : MonoBehaviour
     public void LeftButtonPressed()
     {
         InGameManager.IT.playerTankHandler.LeftArrowPressed();
+        isLeft = true;
     }
 
     public void SpaceButtonPressed()
     {
         InGameManager.IT.playerTankHandler.SpaceDown();
         InGameManager.IT.playerTankHandler.SpacePressed();
+        isSpace = true;
     }
 
     public void SpaceButtonUp()
     {
         InGameManager.IT.playerTankHandler.SpaceUp();
+        isSpace = false;
     }
 }
