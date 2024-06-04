@@ -61,6 +61,22 @@ public class MobileInputManager : MonoBehaviour
             isUp |= up.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
             isDown |= down.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
 			isSpace |= space.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+
+            if (isLeft || isRight)
+			{
+				if (isLeft)
+					InGameManager.IT.playerTankHandler.LeftArrowPressed();
+				else if (isRight)
+					InGameManager.IT.playerTankHandler.RightArrowPressed();
+			}
+            if (isSpace)
+            {
+                InGameManager.IT.playerTankHandler.SpacePressed();
+            }
+            else
+            {
+                InGameManager.IT.playerTankHandler.SpaceUp();
+            }
         }
     }
 }

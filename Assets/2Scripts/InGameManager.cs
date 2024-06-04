@@ -14,7 +14,7 @@ public class InGameManager : MonoBehaviour
 {
     public static InGameManager IT; // 싱글 톤
     
-    private TankHandler playerTankHandler; // 플레이어 탱크 핸들러
+    public TankHandler playerTankHandler; // 플레이어 탱크 핸들러
     private PhotonView PV; // 포톤 뷰
     private CameraHandler cameraHandler; // 카메라 핸들러
     
