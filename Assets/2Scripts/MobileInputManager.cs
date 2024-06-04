@@ -26,6 +26,11 @@ public class MobileInputManager : MonoBehaviour
 
     void Start()
     {
+        isLeft = false;
+        isRight = false;
+        isUp = false;
+        isDown = false;
+        isSpace = false;
         // EventTrigger.Entry entry_PointerDown = new ();
         // entry_PointerDown.eventID = EventTriggerType.PointerDown;
         // entry_PointerDown.callback.AddListener((data) => { LeftButtonPressed(); }); // PointerEventData)data
@@ -36,11 +41,6 @@ public class MobileInputManager : MonoBehaviour
 
     void Update()
     {
-        // isLeft = false;
-        // isRight = false;
-        // isUp = false;
-        // isDown = false;
-
         // for (int i=0; i < Input.touchCount; i++)
         // {
         //     Touch touch = Input.GetTouch(i);
@@ -70,22 +70,22 @@ public class MobileInputManager : MonoBehaviour
         //     isDown |= down.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
 		// 	isSpace |= space.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
         // }
-        if (isLeft || isRight)
-        {
-            if (isLeft)
-                InGameManager.IT.playerTankHandler.LeftArrowPressed();
-            else if (isRight)
-                InGameManager.IT.playerTankHandler.RightArrowPressed();
-        }
-        if (isSpace)
-        {
-            InGameManager.IT.playerTankHandler.SpaceDown();
-            InGameManager.IT.playerTankHandler.SpacePressed();
-        }
-        else
-        {
-            InGameManager.IT.playerTankHandler.SpaceUp();
-        }
+        // if (isLeft || isRight)
+        // {
+        //     if (isLeft)
+        //         InGameManager.IT.playerTankHandler.LeftArrowPressed();
+        //     else if (isRight)
+        //         InGameManager.IT.playerTankHandler.RightArrowPressed();
+        // }
+        // if (isSpace)
+        // {
+        //     InGameManager.IT.playerTankHandler.SpaceDown();
+        //     InGameManager.IT.playerTankHandler.SpacePressed();
+        // }
+        // else
+        // {
+        //     InGameManager.IT.playerTankHandler.SpaceUp();
+        // }
     }
 
     public void LeftButtonPressed()
