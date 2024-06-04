@@ -19,6 +19,7 @@ public class MobileInputManager : MonoBehaviour
     bool isRight;
     bool isUp;
     bool isDown;
+    bool isSpace;
 
     void Start()
     {
@@ -55,6 +56,11 @@ public class MobileInputManager : MonoBehaviour
                     }
                     break;
             }
+            isLeft |= left.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+            isRight |= right.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+            isUp |= up.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+            isDown |= down.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
+			isSpace |= space.GetComponent<SpriteRenderer>().bounds.Contains(touch.position);
         }
     }
 }
